@@ -1,0 +1,92 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* 最底層 */
+}
+
+/* 選單樣式 */
+.menu {
+  position: absolute;
+  top: -100px; /* 預設隱藏選單 */
+  right: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* 將選單項目排列在同一行 */
+  gap: 20px; /* 每個項目之間的距離 */
+  z-index: 3; /* 最上層 */
+  transition: top 0.5s ease; /* 平滑顯示與隱藏 */
+}
+
+.menu li {
+  position: relative; /* 為了讓子選單定位 */
+  padding: 10px 20px;
+  text-align: center;
+  background-color: #ffc8dd; /* 預設背景顏色 */
+  border: 2px solid #dec9e9; /* 預設邊框顏色 */
+  border-radius: 10px; /* 圓角矩形 */
+  font-size: 20px; /* 主選單文字大小 */
+  font-family: "Microsoft JhengHei", Arial, sans-serif; /* 微軟正黑體 */
+  color: #14213d; /* 預設字體顏色 */
+  cursor: pointer;
+  transition: all 0.3s ease; /* 平滑過渡效果 */
+}
+
+.menu li:hover {
+  background-color: #ffddd2; /* 滑鼠移入時的背景顏色 */
+  color: #403d39; /* 滑鼠移入時的字體顏色 */
+  border-color: #ffe5ec; /* 滑鼠移入時的邊框顏色 */
+}
+
+.submenu {
+  display: none; /* 預設隱藏子選單 */
+  position: absolute;
+  top: 100%; /* 子選單顯示在主選單下方 */
+  left: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #ffc8dd; /* 子選單背景顏色 */
+  border: 2px solid #dec9e9; /* 子選單邊框顏色 */
+  border-radius: 10px; /* 子選單圓角 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 子選單陰影 */
+}
+
+.submenu li {
+  padding: 5px 10px; /* 子選單項目內距 */
+  font-size: 16px; /* 子選單文字大小 */
+}
+
+.submenu li a {
+  text-decoration: none;
+  color: #14213d; /* 子選單字體顏色 */
+}
+
+.submenu li:hover {
+  background-color: #ffddd2; /* 滑鼠移入子選單時的背景顏色 */
+  color: #403d39; /* 滑鼠移入子選單時的字體顏色 */
+}
+
+.menu li:hover .submenu {
+  display: block; /* 滑鼠移入主選單時顯示子選單 */
+}
+
+iframe#content-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* 中間層 */
+  background-color: transparent;
+  display: none; /* 預設隱藏 iframe */
+}

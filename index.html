@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sketch</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <!-- 選單 -->
+    <ul class="menu">
+      <li><a href="#" onclick="hideIframe()">首頁</a></li>
+      <li><a href="#" onclick="loadIframe('https://effy-770.github.io/0413/')">自我介紹</a></li>
+      <li>
+        作品集
+        <ul class="submenu">
+          <li><a href="#" onclick="loadIframe('https://effy-770.github.io/03033//')">第一周作業</a></li>
+          <li><a href="#" onclick="loadIframe('https://effy-770.github.io/0310/')">第二周作業</a></li>
+          <li><a href="#" onclick="loadIframe('https://effy-770.github.io/202503117/')">第三周作業</a></li>
+          <li><a href="#" onclick="loadIframe('#')">第四周作業</a></li>
+        </ul>
+      </li>
+      <li><a href="#" onclick="loadIframe('https://effy-770.github.io/0310/')">測驗卷</a></li>
+      <li><a href="https://youtu.be/1avMOyBmmVM" target="_blank">教學影片</a></li>
+      <li><a href="https://hackmd.io/@Effy2288/BkMSyni01g" target="_blank">筆記</a></li>
+    </ul>
+
+    <!-- 內容區域 -->
+    <div id="content-area"></div>
+
+    <!-- iframe -->
+    <iframe id="content-frame" src="" frameborder="0"></iframe>
+
+    <script src="sketch.js"></script>
+
+    <script>
+      // 動態載入 iframe 的內容
+      function loadIframe(url) {
+        const iframe = document.getElementById('content-frame');
+        iframe.style.display = "block"; // 顯示 iframe
+        iframe.src = url;
+
+        // 清空其他內容
+        document.getElementById('content-area').innerHTML = "";
+      }
+
+      function hideIframe() {
+        const iframe = document.getElementById('content-frame');
+        iframe.style.display = "none"; // 隱藏 iframe
+        iframe.src = ""; // 清空 iframe 的內容
+      }
+
+      // 控制選單顯示與隱藏
+      document.addEventListener("mousemove", (event) => {
+        const menu = document.querySelector(".menu");
+        if (event.clientY <= 200) {
+          menu.style.top = "0"; // 顯示選單
+        } else {
+        }
+      }); menu.style.top = "-100px"; // 隱藏選單
+    </script>
+</html>
